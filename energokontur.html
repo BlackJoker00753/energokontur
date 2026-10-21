@@ -600,7 +600,10 @@ function values(v) {
 // ---------- экраны
 const ROUTES = { overview: 'Обзор', circuits: 'Контуры', economics: 'Экономика', rollout: 'Перенос в ДЗО', journal: 'Журнал решений', sources: 'Источники' };
 let route = 'overview', sel = 0;
-function parse() { const m = location.hash.match(/^#\/(\w+)(?:\/(EC-0[1-3]))?/); route = m && ROUTES[m[1]] ? m[1] : 'overview'; if (m && m[2]) sel = C.findIndex(c => c.id === m[2]) }
+// маршрут хранится в curHash: в автономном файле MVP открыт из blob:-адреса, где смена location.hash не работает
+let curHash = location.hash || '#/overview';
+function navigate(h) { curHash = h; try { if (location.hash !== h) location.hash = h } catch (e) {} render() }
+function parse() { const m = curHash.match(/^#\/(\w+)(?:\/(EC-0[1-3]))?/); route = m && ROUTES[m[1]] ? m[1] : 'overview'; if (m && m[2]) sel = C.findIndex(c => c.id === m[2]) }
 
 function routeStrip(i) {
   const c = C[i], s = st.cases[i], p = phase(i);
@@ -767,9 +770,9 @@ function setTheme(t) {
 // ---------- события
 document.addEventListener('click', e => {
   const b = e.target.closest('button,tr[data-open]'); if (!b || b.disabled) return;
-  if (b.dataset.sel !== undefined) { location.hash = '#/circuits/' + C[+b.dataset.sel].id }
+  if (b.dataset.sel !== undefined) { navigate('#/circuits/' + C[+b.dataset.sel].id) }
   else if (b.dataset.act) act(sel, b.dataset.act);
-  else if (b.dataset.open !== undefined && !e.target.closest('a')) location.hash = '#/circuits/' + C[+b.dataset.open].id;
+  else if (b.dataset.open !== undefined && !e.target.closest('a')) navigate('#/circuits/' + C[+b.dataset.open].id);
   else if (b.dataset.scenario) { st.finance.qty = +b.dataset.scenario; const i = $('[data-finance=qty]'); if (i) i.value = st.finance.qty; updateEconomics() }
   else if (b.hasAttribute('data-restore')) { st.finance = { ...DATA.FINANCE }; render(); toast('Базовые допущения восстановлены') }
   else if (b.hasAttribute('data-export')) exportData();
@@ -789,12 +792,14 @@ document.addEventListener('input', e => {
     const btn = $('[data-act=accept]'); if (btn) btn.disabled = !q.valid;
   }
 });
-window.addEventListener('hashchange', render);
+window.addEventListener('hashchange', () => { if (location.hash && location.hash !== curHash) { curHash = location.hash; render() } });
+// ссылки #/… обрабатываем сами, чтобы навигация работала и в blob:-документе
+document.addEventListener('click', e => { const a = e.target.closest('a[href^="#/"]'); if (!a || e.ctrlKey || e.metaKey) return; e.preventDefault(); navigate(a.getAttribute('href')) }, true);
 let wasNarrow = innerWidth < 700; addEventListener('resize', () => { const n = innerWidth < 700; if (n !== wasNarrow) { wasNarrow = n; render() } });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') $('.side').classList.remove('open') });
 
 render();
-globalThis.EK = { data: DATA, get state() { return st }, render, act: (i, a) => act(i, a), setCheck: (i, k, v) => setCheck(i, k, v), status, values, reset() { st = fresh(); render() }, go(h) { location.hash = h } };
+globalThis.EK = { data: DATA, get state() { return st }, render, act: (i, a) => act(i, a), setCheck: (i, k, v) => setCheck(i, k, v), status, values, reset() { st = fresh(); render() }, go(h) { navigate(h) } };
 })();
 
 </script>
