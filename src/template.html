@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Энергоконтур — учебный MVP КМГ: ИИ находит перерасход энергии, бригада устраняет утечку, энергетик и финансист принимают экономию. Все данные синтетические.">
+<title>Энергоконтур · учебный MVP</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff8a1f'/%3E%3Cpath d='M18.5 5 9 18h7l-1.5 9L24 14h-7z' fill='%23000'/%3E%3C/svg%3E">
+<style>
+/*FONTS*/
+/*STYLE*/
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="Навигация">
+    <a class="brand" href="#/overview"><span class="mark"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></span><span><b>Энергоконтур</b><small>учебный MVP · КМГ</small></span></a>
+    <nav class="nav">
+      <div class="navgroup">Пилот</div>
+      <a href="#/overview" data-r="overview"><svg viewBox="0 0 16 16"><path d="M2.5 2.5h4.5v4.5h-4.5zM9 2.5h4.5v4.5H9zM2.5 9h4.5v4.5h-4.5zM9 9h4.5v4.5H9z"/></svg>Обзор</a>
+      <a href="#/circuits/EC-01" data-r="circuits"><svg viewBox="0 0 16 16"><path d="M2 8h3l1.5-4 3 8L11 8h3"/></svg>Контуры<span class="count" id="navCount" title="Ждут решения"></span></a>
+      <a href="#/economics" data-r="economics"><svg viewBox="0 0 16 16"><path d="M2.5 13.5h11M4 11V8M7 11V5M10 11V7M13 11V3.5"/></svg>Экономика</a>
+      <div class="navgroup">Тиражирование</div>
+      <a href="#/rollout" data-r="rollout"><svg viewBox="0 0 16 16"><path d="M8 2.5v4M8 6.5 3.5 10v3M8 6.5l4.5 3.5v3M8 6.5v6.5"/></svg>Перенос в ДЗО</a>
+      <div class="navgroup">Проверка</div>
+      <a href="#/journal" data-r="journal"><svg viewBox="0 0 16 16"><path d="M4 2.5h8v11H4zM6 5.5h4M6 8h4M6 10.5h2.5"/></svg>Журнал решений</a>
+      <a href="#/sources" data-r="sources"><svg viewBox="0 0 16 16"><path d="M3 3.5c2-1 3.5-1 5 .5 1.5-1.5 3-1.5 5-.5v9.5c-2-1-3.5-1-5 .5-1.5-1.5-3-1.5-5-.5zM8 4v9.5"/></svg>Источники</a>
+    </nav>
+    <p class="side-foot"><b>Все данные синтетические.</b><br>Учебный пример, не данные КМГ. Решения принимают уполномоченные специалисты.</p>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <button class="menu-btn" aria-label="Меню"><svg viewBox="0 0 18 18"><path d="M3 5h12M3 9h12M3 13h12"/></svg></button>
+      <div class="crumbs" id="crumbs"></div>
+      <div class="top-right"><span class="stamp">Данные по 20.10.2026</span><div class="switcher"><span class="dot">ДЗО</span><div><b>ДЗО-пилот</b><small>синтетические данные</small></div></div></div>
+    </header>
+    <main class="canvas" id="view"></main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+/*SCRIPTS*/
+</script>
+</body>
+</html>

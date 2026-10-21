@@ -1,0 +1,17 @@
+source/
+node_modules/
+.taste-skill/
+video/**/frames/
+video/**/renders/
+*.log
+public/
+mail/
+video/mail/
+video/**/.hyperframes/
+video/**/snaps/
+video/**/*-raw.mp4
+video/**/screen.mp4
+video/**/composition/assets/screen.mp4
+video/**/*.log
+presentation/index.html
+presentation/assets/fonts/

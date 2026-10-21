@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Направления дизайна</title>
+<style>
+@import url(../assets/fonts-Onest.css);@import url(../assets/fonts-Manrope.css);@import url(../assets/fonts-Geologica.css);
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;font:14px/20px var(--font);background:var(--ground);color:var(--text);font-variant-numeric:tabular-nums}
+.d-a{--font:'Onest',sans-serif;--ground:#f3f4f1;--surface:#fff;--raised:#f7f8f5;--active:#e6e8e3;--border:#e1e3de;--rule:#eef0eb;--text:#141613;--muted:#596056;--hue:#0b7a55;--hue-t:#dff1e8;--hue-ink:#064a33;--loss:#b4471b;--primary:#141613;--on-primary:#fff;--r:6px;--rc:6px}
+.d-b{--font:'Manrope',sans-serif;--ground:#000;--surface:#111;--raised:#1f1f1f;--active:#1f1f1f;--border:#000;--rule:#222;--text:#fff;--muted:#b4b4b4;--hue:#ff8a1f;--hue-t:#2e1c0c;--hue-ink:#ffb067;--loss:#ff8a1f;--primary:#fff;--on-primary:#000;--r:20px;--rc:999px}
+.d-c{--font:'Geologica',sans-serif;--ground:#fff;--surface:#fff;--raised:#f6f6f2;--active:#fff3c4;--border:#e8e8e1;--rule:#f0f0ea;--text:#17150f;--muted:#5d5a50;--hue:#f2b100;--hue-t:#fff3c4;--hue-ink:#5a4100;--loss:#17150f;--primary:#17150f;--on-primary:#fff;--r:16px;--rc:999px}
+.app{display:grid;grid-template-columns:232px 1fr;height:900px}
+nav{padding:20px 12px;display:flex;flex-direction:column;gap:2px}
+.d-c nav{background:var(--raised)}
+.brand{display:flex;gap:10px;align-items:center;padding:0 10px 18px}
+.mark{width:30px;height:30px;border-radius:8px;background:var(--hue);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.brand b{display:block;font-size:15px;font-weight:600}.brand small{display:block;font-size:12px;color:var(--muted);line-height:16px}
+.scope{margin:0 4px 16px;padding:8px 10px;border-radius:var(--rc);background:var(--surface);font-size:13px;color:var(--muted)}
+.d-a .scope{border:1px solid var(--border)}.d-b .scope{background:var(--raised)}.d-c .scope{background:#fff;border:1px solid var(--border)}
+.ni{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border-radius:var(--rc);color:var(--muted)}
+.ni.on{background:var(--active);color:var(--text);font-weight:500}
+.d-b .ni{color:#bbb}.d-b .ni.on{background:none;color:#fff}
+.d-c .ni.on{color:var(--hue-ink)}
+.ni i{font-style:normal;font-size:12px;color:var(--muted)}
+main{padding:28px 32px;display:grid;grid-template-columns:1fr 360px;grid-template-rows:auto auto 1fr;gap:16px;align-content:start}
+.d-a main{background:var(--ground)}
+.title{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+h1{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.01em}
+.title p{color:var(--muted);font-size:15px;margin-top:4px}
+.title p b{color:var(--text);font-weight:600}
+.btn{height:36px;padding:0 16px;border-radius:var(--rc);background:var(--primary);color:var(--on-primary);font:500 14px var(--font);border:0;display:inline-flex;align-items:center;white-space:nowrap}
+.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.d-b .ghost{border-color:#444}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.d-b .card{border:0}
+.d-c .card{border-color:var(--border)}
+.card h2{font-size:15px;font-weight:600;line-height:20px;display:flex;justify-content:space-between}
+.card h2 span{font-weight:400;color:var(--muted);font-size:13px}
+.stages{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0;overflow:hidden}
+.st{padding:16px 20px;display:flex;flex-direction:column;gap:4px;position:relative}
+.st+.st{border-left:1px solid var(--rule)}
+.d-b .st+.st{border-color:#222}
+.st small{color:var(--muted);font-size:12px}
+.st b{font-weight:600;font-size:15px}
+.st .who{font-size:13px;color:var(--muted)}
+.st.done b::before{content:'✓ ';color:var(--hue)}
+.st.cur{background:var(--hue-t)}
+.st.cur b,.st.cur small,.st.cur .who{color:var(--hue-ink)}
+.d-b .st.cur{background:#2a1a0b}
+.st .bar{position:absolute;left:0;right:0;top:0;height:3px;background:var(--hue)}
+.st:not(.done):not(.cur) .bar{display:none}
+.chartcard{display:flex;flex-direction:column;gap:12px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:4px}
+.kpis div{padding:0 16px}.kpis div:first-child{padding-left:0}.kpis div+div{border-left:1px solid var(--rule)}
+.d-b .kpis div+div{border-color:#2a2a2a}
+.kpis small{display:block;color:var(--muted);font-size:13px}
+.kpis b{display:block;font-size:28px;line-height:36px;font-weight:500;letter-spacing:-.01em}
+.kpis b u{text-decoration:none;font-size:14px;color:var(--muted);font-weight:400;margin-left:4px}
+.kpis .lead b{color:var(--text)}
+.side{display:flex;flex-direction:column;gap:16px}
+.chk{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--rule);font-size:14px;line-height:20px}
+.d-b .chk{border-color:#222}
+.chk:first-of-type{border-top:0}
+.box{flex:none;width:18px;height:18px;border-radius:4px;border:1.5px solid var(--muted);margin-top:1px;display:grid;place-items:center;font-size:12px}
+.box.on{background:var(--text);border-color:var(--text);color:var(--surface)}
+.list .row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--rule)}
+.d-b .list .row{border-color:#222}
+.list .row:first-of-type{border-top:0}
+.list .id{font-weight:600}.list .nm{color:var(--muted)}
+.pill{height:22px;padding:0 8px;border-radius:999px;font-size:12px;display:inline-flex;align-items:center;white-space:nowrap}
+.p-w{background:var(--hue-t);color:var(--hue-ink)}
+.p-n{background:var(--raised);color:var(--muted)}
+.d-a .p-n{background:#eef0eb}
+.p-x{background:#ffedea;color:#831c1e}.d-b .p-x{background:#2c1a20;color:#e5566f}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+.thermo{display:grid;grid-template-columns:repeat(60,1fr);gap:2px;height:22px;margin-top:2px}
+.thermo i{border-radius:2px}
+.meter{display:flex;gap:4px;margin-top:8px}
+.meter span{width:30px;height:44px;border-radius:8px;background:var(--text);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:500}
+.meter span.h{background:var(--hue);color:var(--text)}
+svg text{font-family:var(--font)}
+</style>
+</head>
+<body>
+<div class="app">
+<nav>
+  <div class="brand"><span class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="var(--on-mark,#fff)"/></svg></span><span><b>Энергоконтур</b><small>учебный MVP · КМГ</small></span></div>
+  <div class="scope">ДЗО-пилот · синтетические данные</div>
+  <div class="ni">Обзор</div>
+  <div class="ni on">Контуры <i>3</i></div>
+  <div class="ni">Экономика</div>
+  <div class="ni">Перенос в ДЗО</div>
+  <div class="ni">Журнал решений</div>
+  <div class="ni">Источники</div>
+</nav>
+<main>
+  <div class="title"><div><h1>EC-01 · Технический воздух</h1><p>Утечка устранена. Ниже базы на <b>250 тыс. кВт·ч</b> за 30 дней — ждёт приёмки энергетика.</p></div><div style="display:flex;gap:8px"><button class="btn ghost">Журнал</button><button class="btn">Принять технический результат</button></div></div>
+  <div class="card stages">
+    <div class="st done"><span class="bar"></span><small>Шаг 1</small><b>Потеря найдена</b><span class="who">ИИ и оператор · 02.10</span></div>
+    <div class="st done"><span class="bar"></span><small>Шаг 2</small><b>Устранено</b><span class="who">Бригада · акт Р-01 · 04.10</span></div>
+    <div class="st cur"><span class="bar"></span><small>Сейчас</small><b>Замер и проверка</b><span class="who">Энергетик</span></div>
+    <div class="st"><span class="bar"></span><small>Дальше</small><b>Деньги</b><span class="who">Финансист</span></div>
+  </div>
+  <div class="card chartcard">
+    <h2>Суточный расход, тыс. кВт·ч <span>30 дней до и 30 после устранения</span></h2>
+    <div id="chart"></div>
+    <div class="extra"></div>
+    <div class="kpis">
+      <div class="lead"><small>Разница к базе</small><b>250<u>тыс. кВт·ч</u></b></div>
+      <div><small>К нормализованной базе</small><b>3,0<u>%</u></b></div>
+      <div><small>Эффект в деньгах</small><b style="color:var(--muted)">—<u>не принят</u></b></div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="card"><h2>Проверка энергетика <span>2 из 3</span></h2>
+      <div style="margin-top:8px">
+      <div class="chk"><span class="box on">✓</span>Счётчик пригоден, учёт полный: 30 из 30 дней</div>
+      <div class="chk"><span class="box on">✓</span>База приведена к выпуску и режиму</div>
+      <div class="chk"><span class="box"></span>Расход всей системы снизился, переноса нет</div>
+      </div>
+    </div>
+    <div class="card list"><h2>Контуры <span>3 учебных</span></h2>
+      <div style="margin-top:8px">
+      <div class="row"><span class="id">EC-01</span><span class="nm">Технический воздух</span><span class="pill p-w">Замер</span></div>
+      <div class="row"><span class="id">EC-02</span><span class="nm">Ниже выпуск</span><span class="pill p-n">Нет экономии</span></div>
+      <div class="row"><span class="id">EC-03</span><span class="nm">Неполный учёт</span><span class="pill p-x">27 из 30 дней</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+<script>
+const d = new URLSearchParams(location.search).get('d') || 'a';
+document.body.className = 'd-' + d;
+if (d === 'c') document.documentElement.style.setProperty('--on-mark', '#17150f');
+// синтетический ряд: 30 дней до (≈277,8 тыс./сут), 30 после (≈269,4)
+let s = 7; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280 - .5;
+const vals = Array.from({ length: 60 }, (_, i) => (i < 30 ? 277.8 : 269.4) + rnd() * 3.2);
+const W = 820, H = 230, lo = 260, hi = 285, X = i => 44 + i / 59 * (W - 60), Y = v => 12 + (hi - v) / (hi - lo) * (H - 44);
+const css = getComputedStyle(document.body), hue = css.getPropertyValue('--hue'), muted = css.getPropertyValue('--muted'), grid = d === 'b' ? '#2b2b2b' : '#e5e5e1';
+let g = '';
+for (const v of [260, 265, 270, 275, 280, 285]) g += `<path d="M44 ${Y(v)}H${W - 16}" stroke="${grid}"/><text x="36" y="${Y(v) + 4}" font-size="12" text-anchor="end" fill="${muted}">${v}</text>`;
+const pts = (a, b) => vals.slice(a, b).map((v, k) => (k ? 'L' : 'M') + X(a + k).toFixed(1) + ' ' + Y(v).toFixed(1)).join(' ');
+const ink = d === 'b' ? '#8a8a8a' : css.getPropertyValue('--text');
+g += `<path d="M${X(29.5)} 12V${H - 32}" stroke="${muted}" stroke-dasharray="3 3"/><text x="${X(29.5) + 6}" y="24" font-size="12" fill="${muted}">Устранение · акт Р-01</text>`;
+g += `<path d="M${X(0)} ${Y(277.8)}H${X(59)}" stroke="${muted}" stroke-dasharray="6 5"/><text x="${X(59)}" y="${Y(277.8) - 6}" font-size="12" text-anchor="end" fill="${muted}">База для текущего режима 277,8</text>`;
+g += `<path d="${pts(0, 30)}" stroke="${ink}" stroke-width="2" fill="none"/><path d="${pts(29, 60)}" stroke="${hue}" stroke-width="2.5" fill="none"/>`;
+for (const [i, t] of [[0, '05.09'], [10, '15.09'], [20, '25.09'], [30, '05.10'], [40, '15.10'], [50, '25.10'], [59, '03.11']]) g += `<text x="${X(i)}" y="${H - 10}" font-size="12" text-anchor="${i === 0 ? 'start' : i === 59 ? 'end' : 'middle'}" fill="${muted}">${t}</text>`;
+document.getElementById('chart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%">${g}</svg>`;
+const ex = document.querySelector('.extra');
+if (d === 'b') ex.innerHTML = '<div style="font-size:12px;color:var(--muted)">Тепловая полоса перерасхода по дням</div><div class="thermo">' + vals.map(v => { const k = Math.max(0, Math.min(1, (v - 266) / 14)); return `<i style="background:rgba(255,138,31,${(.08 + k * .92).toFixed(2)})"></i>` }).join('') + '</div>';
+if (d === 'c') ex.innerHTML = '<div style="font-size:12px;color:var(--muted)">Счётчик сэкономленного, кВт·ч</div><div class="meter">' + '0250000'.split('').map((c, i) => `<span class="${i < 4 && i > 0 ? 'h' : ''}">${c}</span>`).join('') + '</div>';
+if (d === 'a') ex.innerHTML = '<div style="display:flex;gap:24px;font-size:13px;color:var(--muted)"><span><b style="color:var(--text);font-weight:500">До меры</b> 8,33 млн</span><span><b style="color:var(--text);font-weight:500">База</b> 8,33 млн</span><span><b style="color:var(--hue);font-weight:600">Факт</b> 8,08 млн кВт·ч</span></div>';
+</script>
+</body>
+</html>

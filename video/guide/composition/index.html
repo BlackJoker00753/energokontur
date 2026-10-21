@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Manrope-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Manrope-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Manrope-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Manrope-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Manrope-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Manrope-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Manrope-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Manrope-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+#root{width:100%;height:100%;position:relative;overflow:hidden;background:#000;font-family:'Manrope',sans-serif;color:#fff}
+.clip{position:absolute;inset:0}
+.card{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px}
+.logo{width:420px;height:auto}
+.row{display:flex;align-items:center;gap:30px}
+.mark{width:88px;height:88px;border-radius:26px;background:#ff8a1f;display:grid;place-items:center}
+.mark svg{width:52px;height:52px}
+.ct{font-size:96px;font-weight:700;letter-spacing:-.035em}
+.cs{font-size:38px;color:#b4b4b4;font-weight:500}
+.cu{font-size:40px;color:#ffb067;font-weight:600}
+.cn{position:absolute;bottom:90px;font-size:26px;color:#949494}
+.list{display:flex;gap:14px}
+.list span{font-size:28px;font-weight:600;background:#1f1f1f;border-radius:999px;padding:12px 26px}
+#steps{position:absolute;left:36px;bottom:40px;z-index:40}
+.step{position:absolute;left:0;bottom:0;white-space:nowrap;font-size:24px;font-weight:700;color:#000;background:#ff8a1f;border-radius:999px;padding:10px 22px;opacity:0}
+#caps{position:absolute;left:0;right:0;bottom:40px;display:flex;justify-content:center;z-index:50;pointer-events:none}
+.cap{position:absolute;bottom:0;max-width:1180px;font-size:32px;font-weight:600;line-height:1.3;text-align:center;color:#fff;background:rgba(0,0,0,.9);padding:12px 26px;border-radius:12px;opacity:0}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="124.44" data-width="1920" data-height="1080">
+
+  <div id="intro" class="clip" data-start="0" data-duration="3.4" data-track-index="0">
+    <div class="card">
+      <img class="logo" src="assets/kmg-wide-dark.png" alt="КазМунайГаз">
+      <div id="i1" class="row"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></div><div class="ct">Как работает Энергоконтур</div></div>
+      <div id="i2" class="cs">Видео-инструкция · учебный MVP за 2 минуты</div>
+      <div id="i3" class="list"><span>Потеря</span><span>Устранение</span><span>Замер</span><span>Деньги</span></div>
+      <div class="cn">Все данные в MVP синтетические</div>
+    </div>
+  </div>
+
+  <video id="scr" class="clip" src="assets/screen.mp4" muted playsinline data-start="3.4" data-duration="116.44" data-track-index="1"></video>
+
+  <div id="outro" class="clip" data-start="119.84" data-duration="4.6" data-track-index="0">
+    <div class="card">
+      <img class="logo" src="assets/kmg-wide-dark.png" alt="КазМунайГаз">
+      <div id="o1" class="row"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></div><div class="ct">Попробуйте сами</div></div>
+      <div id="o2" class="cu">energokontur.onrender.com</div>
+      <div class="cn">Энергоконтур · учебный MVP на синтетических данных · Олжас Райганиев, KMG Digital</div>
+    </div>
+  </div>
+
+  <div id="steps"><div id="st0" class="step">Обзор пилота</div><div id="st1" class="step">Контур EC-01 · маршрут</div><div id="st2" class="step">Шаг 2 · Устранение</div><div id="st3" class="step">Шаг 3 · Замер энергетика</div><div id="st4" class="step">Шаг 4 · Деньги</div><div id="st5" class="step">EC-02 · снижение выпуска</div><div id="st6" class="step">EC-03 · неполный учёт</div><div id="st7" class="step">Экономика ДЗО</div><div id="st8" class="step">Перенос и журнал решений</div></div>
+  <div id="caps"><div id="cap0" class="cap">Это «Энергоконтур», учебный MVP.</div><div id="cap1" class="cap">Все данные в нём синтетические.</div><div id="cap2" class="cap">На обзоре видно главное:</div><div id="cap3" class="cap">сколько экономии принято и что ждёт решения.</div><div id="cap4" class="cap">Тепловая полоса показывает перерасход по дням:</div><div id="cap5" class="cap">чем ярче клетка, тем больше потеря.</div><div id="cap6" class="cap">Откроем контур EC-01, технический воздух.</div><div id="cap7" class="cap">Сверху маршрут из четырёх шагов: потеря, устранение,</div><div id="cap8" class="cap">замер и деньги. ИИ уже нашёл перерасход:</div><div id="cap9" class="cap">+3 % к модели.</div><div id="cap10" class="cap">Бригада устранила утечку по допуску.</div><div id="cap11" class="cap">Нажимаем «Зафиксировать устранение».</div><div id="cap12" class="cap">На графике появились 30 дней после ремонта,</div><div id="cap13" class="cap">и расход стал ниже базы.</div><div id="cap14" class="cap">Теперь работает энергетик. Он отмечает три проверки:</div><div id="cap15" class="cap">счётчик пригоден, база приведена к выпуску,</div><div id="cap16" class="cap">расход всей системы снизился.</div><div id="cap17" class="cap">Разница 3 % больше погрешности.</div><div id="cap18" class="cap">Принимаем технический результат.</div><div id="cap19" class="cap">Шаг финансиста. Переменная стоимость —</div><div id="cap20" class="cap">30 тенге за кВт·ч. Подтверждаем,</div><div id="cap21" class="cap">что двойного счёта нет, и принимаем денежный эффект:</div><div id="cap22" class="cap">7,5 млн тенге за месяц.</div><div id="cap23" class="cap">Контур EC-02 учит не обманываться.</div><div id="cap24" class="cap">Расход упал на 10 %, но вместе с выпуском.</div><div id="cap25" class="cap">После приведения базы разница ноль,</div><div id="cap26" class="cap">поэтому закрываем контур: экономии нет.</div><div id="cap27" class="cap">В контуре EC-03 счётчик передал только 27 суток из 30.</div><div id="cap28" class="cap">Приёмка заблокирована,</div><div id="cap29" class="cap">поэтому запрашиваем восстановление учёта.</div><div id="cap30" class="cap">На экране экономики — сценарий для одного ДЗО.</div><div id="cap31" class="cap">Переключим снижение на 5 % и вернём 3 %.</div><div id="cap32" class="cap">Это 90 млн тенге в год,</div><div id="cap33" class="cap">запуск окупается примерно за 9 месяцев,</div><div id="cap34" class="cap">а выбросы меньше на 1 800 т CO₂.</div><div id="cap35" class="cap">Раздел «Перенос в ДЗО» показывает,</div><div id="cap36" class="cap">как подключить метод в других подразделениях.</div><div id="cap37" class="cap">А журнал решений хранит каждое действие с ролью и временем.</div></div>
+
+  <audio id="vo" src="assets/voiceover.mp3" data-start="3.4" data-track-index="10" data-volume="1"></audio>
+  <audio id="bed" src="assets/bed.mp3" data-start="0" data-duration="124.44" data-track-index="11" data-volume="1"
+    data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.6,"v":0.26},{"t":3.00,"v":0.26},{"t":3.80,"v":0.06},{"t":119.54,"v":0.06},{"t":120.24,"v":0.26},{"t":123.24,"v":0.26},{"t":124.44,"v":0}]}]}'></audio>
+  <audio id="clk0" src="assets/click.ogg" data-start="21.10" data-duration="0.6" data-track-index="20" data-volume="0.4"></audio>
+  <audio id="clk1" src="assets/click.ogg" data-start="38.23" data-duration="0.6" data-track-index="21" data-volume="0.4"></audio>
+  <audio id="clk2" src="assets/click.ogg" data-start="50.03" data-duration="0.6" data-track-index="22" data-volume="0.4"></audio>
+  <audio id="clk3" src="assets/click.ogg" data-start="51.10" data-duration="0.6" data-track-index="23" data-volume="0.4"></audio>
+  <audio id="clk4" src="assets/click.ogg" data-start="52.53" data-duration="0.6" data-track-index="24" data-volume="0.4"></audio>
+  <audio id="clk5" src="assets/click.ogg" data-start="58.50" data-duration="0.6" data-track-index="25" data-volume="0.4"></audio>
+  <audio id="clk6" src="assets/click.ogg" data-start="66.77" data-duration="0.6" data-track-index="26" data-volume="0.4"></audio>
+  <audio id="clk7" src="assets/click.ogg" data-start="69.10" data-duration="0.6" data-track-index="27" data-volume="0.4"></audio>
+  <audio id="clk8" src="assets/click.ogg" data-start="73.47" data-duration="0.6" data-track-index="28" data-volume="0.4"></audio>
+  <audio id="clk9" src="assets/click.ogg" data-start="76.53" data-duration="0.6" data-track-index="29" data-volume="0.4"></audio>
+  <audio id="clk10" src="assets/click.ogg" data-start="81.23" data-duration="0.6" data-track-index="30" data-volume="0.4"></audio>
+  <audio id="clk11" src="assets/click.ogg" data-start="83.00" data-duration="0.6" data-track-index="31" data-volume="0.4"></audio>
+  <audio id="clk12" src="assets/click.ogg" data-start="85.73" data-duration="0.6" data-track-index="32" data-volume="0.4"></audio>
+  <audio id="clk13" src="assets/click.ogg" data-start="87.07" data-duration="0.6" data-track-index="33" data-volume="0.4"></audio>
+  <audio id="clk14" src="assets/click.ogg" data-start="92.77" data-duration="0.6" data-track-index="34" data-volume="0.4"></audio>
+  <audio id="clk15" src="assets/click.ogg" data-start="95.70" data-duration="0.6" data-track-index="35" data-volume="0.4"></audio>
+  <audio id="clk16" src="assets/click.ogg" data-start="99.90" data-duration="0.6" data-track-index="36" data-volume="0.4"></audio>
+  <audio id="clk17" src="assets/click.ogg" data-start="101.27" data-duration="0.6" data-track-index="37" data-volume="0.4"></audio>
+  <audio id="clk18" src="assets/click.ogg" data-start="110.77" data-duration="0.6" data-track-index="38" data-volume="0.4"></audio>
+  <audio id="clk19" src="assets/click.ogg" data-start="115.67" data-duration="0.6" data-track-index="39" data-volume="0.4"></audio>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E = 'power3.out';
+tl.fromTo('#intro .logo', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, 0.1);
+tl.fromTo(['#i1', '#i2', '#i3'], { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: E }, 0.4);
+tl.to('#intro .card', { opacity: 0, duration: 0.45 }, 2.95);
+tl.fromTo('#outro .card', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 119.84);
+tl.fromTo(['#outro .logo', '#o1', '#o2'], { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: E }, 119.84 + 0.3);
+[{"t0":3.4,"t1":20.28,"text":"Обзор пилота"},{"t0":20.28,"t1":33.99,"text":"Контур EC-01 · маршрут"},{"t0":33.99,"t1":45.29,"text":"Шаг 2 · Устранение"},{"t0":45.29,"t1":60.42,"text":"Шаг 3 · Замер энергетика"},{"t0":60.42,"t1":72.54,"text":"Шаг 4 · Деньги"},{"t0":72.54,"t1":85.01,"text":"EC-02 · снижение выпуска"},{"t0":85.01,"t1":94.79,"text":"EC-03 · неполный учёт"},{"t0":94.79,"t1":109.81,"text":"Экономика ДЗО"},{"t0":109.81,"t1":119.84,"text":"Перенос и журнал решений"}].forEach((s, i) => { const id = '#st' + i; tl.fromTo(id, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.35, ease: E }, s.t0 + 0.1); tl.to(id, { opacity: 0, duration: 0.25 }, s.t1 - 0.05) });
+[{"t0":3.5,"t1":5.96,"text":"Это «Энергоконтур», учебный MVP."},{"t0":5.96,"t1":8.33,"text":"Все данные в нём синтетические."},{"t0":8.33,"t1":10.18,"text":"На обзоре видно главное:"},{"t0":10.18,"t1":13.55,"text":"сколько экономии принято и что ждёт решения."},{"t0":13.55,"t1":17.08,"text":"Тепловая полоса показывает перерасход по дням:"},{"t0":17.08,"t1":19.77,"text":"чем ярче клетка, тем больше потеря."},{"t0":20.58,"t1":24.17,"text":"Откроем контур EC-01, технический воздух."},{"t0":24.17,"t1":28.73,"text":"Сверху маршрут из четырёх шагов: потеря, устранение,"},{"t0":28.73,"t1":32.24,"text":"замер и деньги. ИИ уже нашёл перерасход:"},{"t0":32.24,"t1":33.46,"text":"+3 % к модели."},{"t0":34.3,"t1":37,"text":"Бригада устранила утечку по допуску."},{"t0":37,"t1":39.71,"text":"Нажимаем «Зафиксировать устранение»."},{"t0":39.71,"t1":42.94,"text":"На графике появились 30 дней после ремонта,"},{"t0":42.94,"t1":44.75,"text":"и расход стал ниже базы."},{"t0":45.59,"t1":49.56,"text":"Теперь работает энергетик. Он отмечает три проверки:"},{"t0":49.56,"t1":52.85,"text":"счётчик пригоден, база приведена к выпуску,"},{"t0":52.85,"t1":55.06,"text":"расход всей системы снизился."},{"t0":55.06,"t1":57.43,"text":"Разница 3 % больше погрешности."},{"t0":57.43,"t1":59.87,"text":"Принимаем технический результат."},{"t0":60.72,"t1":63.69,"text":"Шаг финансиста. Переменная стоимость —"},{"t0":63.69,"t1":66.19,"text":"30 тенге за кВт·ч. Подтверждаем,"},{"t0":66.19,"t1":70.25,"text":"что двойного счёта нет, и принимаем денежный эффект:"},{"t0":70.25,"t1":72.05,"text":"7,5 млн тенге за месяц."},{"t0":72.84,"t1":75.47,"text":"Контур EC-02 учит не обманываться."},{"t0":75.47,"t1":78.73,"text":"Расход упал на 10 %, но вместе с выпуском."},{"t0":78.73,"t1":81.44,"text":"После приведения базы разница ноль,"},{"t0":81.44,"t1":84.47,"text":"поэтому закрываем контур: экономии нет."},{"t0":85.31,"t1":89.45,"text":"В контуре EC-03 счётчик передал только 27 суток из 30."},{"t0":89.45,"t1":91.13,"text":"Приёмка заблокирована,"},{"t0":91.13,"t1":94.27,"text":"поэтому запрашиваем восстановление учёта."},{"t0":95.09,"t1":98.71,"text":"На экране экономики — сценарий для одного ДЗО."},{"t0":98.71,"t1":101.86,"text":"Переключим снижение на 5 % и вернём 3 %."},{"t0":101.86,"t1":103.67,"text":"Это 90 млн тенге в год,"},{"t0":103.67,"t1":106.73,"text":"запуск окупается примерно за 9 месяцев,"},{"t0":106.73,"t1":109.25,"text":"а выбросы меньше на 1 800 т CO₂."},{"t0":110.11,"t1":112.21,"text":"Раздел «Перенос в ДЗО» показывает,"},{"t0":112.21,"t1":114.99,"text":"как подключить метод в других подразделениях."},{"t0":114.99,"t1":118.64,"text":"А журнал решений хранит каждое действие с ролью и временем."}].forEach((c, i) => { const id = '#cap' + i; tl.fromTo(id, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.16 }, c.t0); tl.to(id, { opacity: 0, duration: 0.14 }, c.t1 - 0.05) });
+window.__timelines['main'] = tl;
+tl.seek(0);
+</script>
+</body>
+</html>

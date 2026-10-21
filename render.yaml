@@ -1,0 +1,11 @@
+# Render Blueprint: статический сайт без сервера
+services:
+  - type: web
+    name: energokontur
+    runtime: static
+    buildCommand: node build.js
+    staticPublishPath: ./public
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
