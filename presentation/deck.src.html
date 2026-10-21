@@ -24,10 +24,10 @@ button{font:inherit;color:inherit}
 .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease),transform .9s var(--ease),visibility 0s}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms + 120ms)}
 .slide.on .rv{opacity:1;transform:none}
-.chrome{position:absolute;left:120px;right:120px;bottom:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;font-size:20px;color:var(--faint);z-index:3;pointer-events:none}
+.chrome{position:absolute;left:120px;right:120px;bottom:36px;display:flex;align-items:center;justify-content:space-between;gap:32px;font-size:20px;color:var(--faint);z-index:3;pointer-events:none}
 .chrome>*{pointer-events:auto}
-.chrome .brand{display:flex;align-items:center;gap:20px}
-.chrome img{height:40px;width:auto;display:block}
+.chrome .brand{display:flex;align-items:center;gap:28px}
+.chrome img{height:76px;width:auto;display:block}
 .prog{display:flex;align-items:center;gap:20px}
 .prog .bar{width:280px;height:3px;background:#262626;border-radius:3px;overflow:hidden}
 .prog .bar i{display:block;height:100%;background:#fff;width:0;transition:width .6s var(--ease)}
@@ -127,7 +127,6 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 .links a span{display:block;font-size:21px;color:var(--faint);margin-top:6px;word-break:break-all}
 .links a svg{flex:none;width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8}
 .author{display:flex;gap:28px;align-items:center}
-.author .av{width:84px;height:84px;border-radius:50%;background:var(--heat);color:#000;display:grid;place-items:center;font-size:32px;font-weight:700;flex:none}
 .author b{display:block;font-size:30px}
 .author span{display:block;font-size:22px;color:var(--muted);margin-top:4px}
 .synth{display:inline-flex;align-items:center;gap:12px;font-size:21px;color:var(--muted)}
@@ -149,7 +148,7 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
     <div style="display:flex;flex-direction:column;gap:40px">
       <h1 class="rv" style="--i:0;font-size:112px;white-space:nowrap">Энергоконтур</h1>
       <p class="lead rv" style="--i:1">ИИ находит потери энергии. <b>Люди подтверждают экономию</b> по замеру.</p>
-      <div class="author rv" style="--i:2"><span class="av">ОР</span><div><b>Олжас Райганиев</b><span>AI инженер · Департамент AI · ТОО «KMG Digital»</span></div></div>
+      <div class="author rv" style="--i:2"><div><b>Олжас Райганиев</b><span>AI инженер · Департамент AI · ТОО «KMG Digital»</span></div></div>
       <p class="small rv" style="--i:3">Конкурс КМГ «Лучшие инновационные идеи и практики в области охраны здоровья, труда и окружающей среды», 2026</p>
     </div>
     <figure class="live rv" style="--i:2">
@@ -255,16 +254,15 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
     <a data-href="presentation/" target="_blank" rel="noopener"><div><b>Эта презентация</b><span data-url="presentation/"></span></div><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></svg></a>
     <a data-href="presentation/assets/idea.mp4" target="_blank" rel="noopener"><div><b>Видео «Идея»</b><span data-url="presentation/assets/idea.mp4"></span></div><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></svg></a>
     <a data-href="presentation/assets/guide.mp4" target="_blank" rel="noopener"><div><b>Видео-инструкция</b><span data-url="presentation/assets/guide.mp4"></span></div><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></svg></a>
-    <a id="repoLink" target="_blank" rel="noopener" style="grid-column:1/-1"><div><b>Исходный код на GitHub</b><span id="repoText"></span></div><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></svg></a>
   </div>
   <div class="rv" style="--i:2;margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
-    <div class="author"><span class="av">ОР</span><div><b>Олжас Райганиев</b><span>AI инженер · Департамент AI · ТОО «KMG Digital»</span></div></div>
+    <div class="author"><div><b>Олжас Райганиев</b><span>AI инженер · Департамент AI · ТОО «KMG Digital»</span></div></div>
     <span class="synth"><i></i>Все данные в MVP и видео синтетические</span>
   </div>
 </section>
 
 <footer class="chrome">
-  <div class="brand"><img src="assets/img/kmg-wide-dark.png" alt="АО НК «КазМунайГаз»" width="133" height="40"><span id="stitle">Энергоконтур</span></div>
+  <div class="brand"><img src="assets/img/kmg-logo-dark.png" alt="АО НК «КазМунайГаз»" width="273" height="76"><span id="stitle">Энергоконтур</span></div>
   <div class="prog"><span id="counter">1 из 7</span><span class="bar"><i id="pbar"></i></span><div class="navb"><button id="prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button id="next" aria-label="Далее"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><button id="fs" aria-label="Полный экран (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div></div>
 </footer>
 </div>
@@ -273,8 +271,8 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 <script>
 (() => {
 'use strict';
-// адреса: сайт Render и репозиторий GitHub (заполняются после публикации)
-const SITE = 'https://energokontur.onrender.com/', REPO = 'https://github.com/BlackJoker00753/energokontur';
+// адрес сайта на Render
+const SITE = 'https://energokontur.onrender.com/';
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const slides = $$('.slide'), N = slides.length, stage = $('#stage');
 let cur = 0;
@@ -285,7 +283,6 @@ const mvpUrl = window.MVP_URL || (local ? '../energokontur.html' : '../');
 for (const a of $$('[data-mvp]')) a.href = mvpUrl;
 for (const a of $$('[data-href]')) a.href = (local || window.MVP_URL ? SITE : new URL('../', location.href).href) + a.dataset.href;
 for (const s of $$('[data-url]')) s.textContent = (SITE + (s.dataset.url === 'mvp' ? '' : s.dataset.url)).replace('https://', '');
-$('#repoLink').href = REPO; $('#repoText').textContent = REPO.replace('https://', '');
 
 function fit() { const k = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = `translate(-50%,-50%) scale(${k})`; stage.style.transformOrigin = '50% 50%'; stage.style.left = '50%'; stage.style.top = '50%'; fitLive() }
 function fitLive() { const w = $('#liveWin'); if (w) $('#mvpFrame').style.transform = `scale(${w.clientWidth / 1440})` }
