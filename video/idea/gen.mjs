@@ -47,33 +47,33 @@ const html = `<!doctype html>
 <style>
 ${readFileSync('composition/fontfaces.css', 'utf8')}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
-#root{width:100%;height:100%;position:relative;overflow:hidden;background:#000;font-family:'Manrope',sans-serif;color:#fff;font-variant-numeric:tabular-nums}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#30343b}
+#root{width:100%;height:100%;position:relative;overflow:hidden;background:#30343b;font-family:'Manrope',sans-serif;color:#fff;font-variant-numeric:tabular-nums}
 .clip{position:absolute;inset:0}
 .pad{position:absolute;left:140px;right:140px;top:120px}
 .h1{font-size:96px;font-weight:700;letter-spacing:-.035em;line-height:1.02}
 .h2{font-size:72px;font-weight:700;letter-spacing:-.03em;line-height:1.05}
-.lead{font-size:40px;font-weight:500;line-height:1.3;color:#b4b4b4}
+.lead{font-size:40px;font-weight:500;line-height:1.3;color:#cfd2d7}
 .giant{font-size:300px;font-weight:700;letter-spacing:-.05em;line-height:.9}
 .orange{color:#ff8a1f}
-.muted{color:#b4b4b4}
-.small{font-size:26px;color:#949494}
-.card{background:#111;border-radius:32px;padding:44px}
-.tag{display:inline-flex;align-items:center;gap:14px;font-size:28px;font-weight:600;background:#1f1f1f;border-radius:999px;padding:12px 26px}
+.muted{color:#cfd2d7}
+.small{font-size:26px;color:#b0b4bb}
+.card{background:#3a3f47;border-radius:32px;padding:44px}
+.tag{display:inline-flex;align-items:center;gap:14px;font-size:28px;font-weight:600;background:#454a53;border-radius:999px;padding:12px 26px}
 .tag i{width:14px;height:14px;border-radius:50%;background:#ff8a1f;display:block}
 .heat{display:grid;grid-template-columns:repeat(60,1fr);gap:6px;height:64px}
 .heat i{border-radius:5px;display:block}
-.node{background:#111;border-radius:28px;padding:36px 34px;width:370px}
+.node{background:#3a3f47;border-radius:28px;padding:36px 34px;width:370px}
 .node b{display:block;font-size:40px;font-weight:700;letter-spacing:-.02em}
-.node span{display:block;font-size:26px;color:#b4b4b4;margin-top:10px;line-height:1.3}
-.node.on{background:#fff;color:#000}.node.on span{color:#333}
+.node span{display:block;font-size:26px;color:#cfd2d7;margin-top:10px;line-height:1.3}
+.node.on{background:#fff;color:#1f2227}.node.on span{color:#4a5059}
 .ring{position:absolute;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;border:5px solid #ff8a1f}
-.scrim{position:absolute;inset:0;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.35) 68%,rgba(0,0,0,.1) 100%)}
-.shot{position:absolute;border-radius:24px;overflow:hidden;background:#111}
+.scrim{position:absolute;inset:0;background:linear-gradient(90deg,#30343b 0%,rgba(48,52,59,.92) 38%,rgba(48,52,59,.4) 68%,rgba(48,52,59,.1) 100%)}
+.shot{position:absolute;border-radius:24px;overflow:hidden;background:#3a3f47}
 .shot img{display:block;width:100%;height:auto}
-.chip{font-size:34px;font-weight:600;background:#111;border-radius:22px;padding:22px 32px}
+.chip{font-size:34px;font-weight:600;background:#3a3f47;border-radius:22px;padding:22px 32px}
 #caps{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center;z-index:50;pointer-events:none}
-.cap{position:absolute;bottom:0;max-width:1240px;font-size:34px;font-weight:600;line-height:1.3;text-align:center;color:#fff;background:rgba(0,0,0,.86);padding:12px 28px;border-radius:14px;opacity:0}
+.cap{position:absolute;bottom:0;max-width:1240px;font-size:34px;font-weight:600;line-height:1.3;text-align:center;color:#fff;background:rgba(31,34,39,.92);padding:12px 28px;border-radius:14px;opacity:0}
 .mark{width:96px;height:96px;border-radius:28px;background:#ff8a1f;display:grid;place-items:center}
 .mark svg{width:56px;height:56px}
 </style>
@@ -134,15 +134,15 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
   <!-- s5 · Энергоконтур: ИИ сравнивает с нормой -->
   <div id="s5" class="clip" ${sc('s5')} data-track-index="0">
     <div class="pad">
-      <div id="s5a" style="display:flex;align-items:center;gap:34px"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></div><div class="h1" style="font-size:120px">Энергоконтур</div></div>
+      <div id="s5a" style="display:flex;align-items:center;gap:34px"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#1f2227"/></svg></div><div class="h1" style="font-size:120px">Энергоконтур</div></div>
       <div id="s5b" class="lead" style="margin-top:30px">ИИ сравнивает расход с нормой при том же выпуске</div>
       <svg id="s5c" viewBox="0 0 1640 340" style="width:1640px;margin-top:40px;display:block">
         <path d="${path(norm)}" stroke="#7a7a7a" stroke-width="4" stroke-dasharray="14 10" fill="none"/>
-        <text x="1520" text-anchor="end" y="${Yn(30) + 46}" fill="#949494" font-size="28" font-family="Manrope">норма</text>
+        <text x="1520" text-anchor="end" y="${Yn(30) + 46}" fill="#b0b4bb" font-size="28" font-family="Manrope">норма</text>
         <path id="act" d="${path(actual)}" stroke="#ff8a1f" stroke-width="7" fill="none" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
         <text id="factL" x="1520" text-anchor="end" y="${Yn(actual[29]) - 26}" fill="#ffb067" font-size="28" font-weight="700" font-family="Manrope">факт: перерасход</text>
       </svg>
-      <div id="s5d" class="heat" style="margin-top:10px">${heatCells.split('</i>').slice(0, 30).map(x => x + '</i>').join('')}${'<i style="background:#1c1c1c"></i>'.repeat(30)}</div>
+      <div id="s5d" class="heat" style="margin-top:10px">${heatCells.split('</i>').slice(0, 30).map(x => x + '</i>').join('')}${'<i style="background:#454a53"></i>'.repeat(30)}</div>
     </div>
   </div>
 
@@ -151,7 +151,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
     <div class="pad">
       <div id="s6a" class="h2">Решают люди</div>
       <div style="position:relative;margin-top:110px;display:flex;justify-content:space-between">
-        <svg style="position:absolute;left:0;top:118px;width:1640px;height:4px;overflow:visible"><path id="chain" d="M180 2H1460" stroke="#3a3a3a" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+        <svg style="position:absolute;left:0;top:118px;width:1640px;height:4px;overflow:visible"><path id="chain" d="M180 2H1460" stroke="#7c828b" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
         <div id="n1" class="node on" style="position:relative"><b>ИИ</b><span>находит перерасход</span></div>
         <div id="n2" class="node" style="position:relative"><b>Бригада</b><span>чинит по допуску, без давления</span></div>
         <div id="n3" class="node" style="position:relative"><b>Энергетик</b><span>сравнивает 30 дней с базой</span></div>
@@ -178,7 +178,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
     <div class="pad">
       <div id="s8a" class="small">Сценарий на одно ДЗО в год</div>
       <div style="display:flex;gap:120px;margin-top:30px;align-items:flex-end">
-        <div id="s8b"><div class="giant" style="font-size:220px"><span id="cnt8">0</span><span style="font-size:90px;color:#b4b4b4"> млн ₸</span></div></div>
+        <div id="s8b"><div class="giant" style="font-size:220px"><span id="cnt8">0</span><span style="font-size:90px;color:#cfd2d7"> млн ₸</span></div></div>
         <div id="s8c" style="padding-bottom:26px"><div class="h1 orange">−1 800 т</div><div class="lead">CO₂ в год</div></div>
       </div>
       <div style="display:flex;gap:20px;margin-top:110px">
@@ -191,8 +191,8 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
   <!-- s9 · финал -->
   <div id="s9" class="clip" ${sc('s9')} data-track-index="0">
     <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px">
-      <img id="s9l" src="assets/kmg-wide-dark.png" style="width:440px;height:auto">
-      <div id="s9a" style="display:flex;align-items:center;gap:34px"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></div><div class="h1" style="font-size:130px">Энергоконтур</div></div>
+      <img id="s9l" src="assets/kmg-logo-white.png" style="width:440px;height:auto">
+      <div id="s9a" style="display:flex;align-items:center;gap:34px"><div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#1f2227"/></svg></div><div class="h1" style="font-size:130px">Энергоконтур</div></div>
       <div id="s9b" class="lead" style="font-size:46px;color:#fff">Находим потери — подтверждаем экономию</div>
       <div id="s9c" class="small" style="margin-top:30px">Конкурс КМГ по ОЗТОС · Олжас Райганиев, KMG Digital · данные в ролике синтетические</div>
     </div>
@@ -230,8 +230,8 @@ IN('#factL', ${K.over - .4}, 10); IN('#s5d', ${K.over - .2}, 20);
 // s6
 IN('#s6a', ${B('s6') + .2}); IN('#n1', ${B('s6') + .5}); IN('#n2', ${B('s6') + .7}); IN('#n3', ${B('s6') + .9}); IN('#n4', ${B('s6') + 1.1});
 tl.to('#chain', { strokeDashoffset: 0, duration: ${(K.fin - K.brig).toFixed(2)}, ease: 'none' }, ${K.brig});
-const lit = (id, t) => { tl.to(id, { backgroundColor: '#ffffff', color: '#000000', duration: .35 }, t); tl.to(id + ' span', { color: '#333333', duration: .35 }, t) };
-const unlit = (id, t) => { tl.to(id, { backgroundColor: '#111111', color: '#ffffff', duration: .35 }, t); tl.to(id + ' span', { color: '#b4b4b4', duration: .35 }, t) };
+const lit = (id, t) => { tl.to(id, { backgroundColor: '#ffffff', color: '#1f2227', duration: .35 }, t); tl.to(id + ' span', { color: '#4a5059', duration: .35 }, t) };
+const unlit = (id, t) => { tl.to(id, { backgroundColor: '#3a3f47', color: '#ffffff', duration: .35 }, t); tl.to(id + ' span', { color: '#cfd2d7', duration: .35 }, t) };
 unlit('#n1', ${K.brig - .2}); lit('#n2', ${K.brig - .2}); unlit('#n2', ${K.en - .2}); lit('#n3', ${K.en - .2}); unlit('#n3', ${K.fin - .2}); lit('#n4', ${K.fin - .2});
 IN('#s6b', ${K.en});
 // s7

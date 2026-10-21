@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23ff8a1f'/%3E%3Cpath d='M18.5 5 9 18h7l-1.5 9L24 14h-7z' fill='%23000'/%3E%3C/svg%3E">
 <style>
 /*FONTS*/
-:root{--bg:#000;--card:#111;--raised:#1f1f1f;--text:#fff;--muted:#b4b4b4;--faint:#949494;--heat:#ff8a1f;--heat-ink:#ffb067;--ok:#3fc07a;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--bg:#30343b;--card:#3a3f47;--raised:#454a53;--line:#4f555e;--text:#fff;--muted:#cfd2d7;--faint:#b0b4bb;--heat:#ff8a1f;--heat-ink:#ffb067;--ok:#3fc07a;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden}
 body{font-family:'Manrope',system-ui,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
@@ -29,14 +29,14 @@ button{font:inherit;color:inherit}
 .chrome .brand{display:flex;align-items:center;gap:28px}
 .chrome img{height:76px;width:auto;display:block}
 .prog{display:flex;align-items:center;gap:20px}
-.prog .bar{width:280px;height:3px;background:#262626;border-radius:3px;overflow:hidden}
+.prog .bar{width:280px;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
 .prog .bar i{display:block;height:100%;background:#fff;width:0;transition:width .6s var(--ease)}
 .navb{display:flex;gap:10px}
-.navb button,.btn{height:56px;padding:0 26px;border-radius:999px;border:1.5px solid #444;background:transparent;font-size:21px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:12px;white-space:nowrap;text-decoration:none;color:#fff;transition:background-color .2s,border-color .2s,transform .15s var(--ease)}
+.navb button,.btn{height:56px;padding:0 26px;border-radius:999px;border:1.5px solid #6b717b;background:transparent;font-size:21px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:12px;white-space:nowrap;text-decoration:none;color:#fff;transition:background-color .2s,border-color .2s,transform .15s var(--ease)}
 .navb button{width:56px;padding:0;justify-content:center}
-.navb button:hover,.btn:hover{border-color:#888;background:#141414}
+.navb button:hover,.btn:hover{border-color:#9aa0a8;background:#363a42}
 .btn:active,.navb button:active{transform:scale(.96)}
-.btn.primary{background:#fff;color:#000;border-color:#fff}
+.btn.primary{background:#fff;color:#1f2227;border-color:#fff}
 .btn.primary:hover{background:#e3e3e3}
 .btn svg,.navb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .navb button:disabled{opacity:.3;cursor:default}
@@ -52,7 +52,7 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 .bul li{display:grid;grid-template-columns:22px 1fr;gap:22px;font-size:34px;line-height:1.3;font-weight:500}
 .bul li::before{content:'';width:14px;height:14px;border-radius:4px;background:var(--heat);margin-top:15px}
 .bul li span{display:block;font-size:24px;color:var(--muted);font-weight:400;margin-top:6px;line-height:1.35}
-.bul.grey li::before{background:#555}
+.bul.grey li::before{background:#7c828b}
 .bul.grey li{color:var(--muted)}
 /* тепловая полоса */
 .heat{display:grid;grid-template-columns:repeat(60,1fr);gap:5px}
@@ -60,8 +60,8 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 .slide.on .heat i{transform:none;opacity:1}
 /* плееры */
 .player{background:var(--card);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:18px}
-.screen{position:relative;aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden}
-.screen video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.screen{position:relative;aspect-ratio:16/9;background:#24272c;border-radius:16px;overflow:hidden}
+.screen video{width:100%;height:100%;object-fit:contain;display:block;background:#24272c}
 .screen .cover{position:absolute;inset:0;border:0;padding:0;background:transparent;cursor:pointer;display:grid;place-items:center}
 .screen .cover span{width:104px;height:104px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s var(--ease)}
 .screen .cover:hover span{transform:scale(1.08)}
@@ -74,20 +74,20 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 .pbar .btn{height:52px;font-size:19px;padding:0 22px}
 /* живое окно MVP */
 .live{background:var(--card);border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:16px}
-.live .win{position:relative;width:100%;aspect-ratio:1440/900;border-radius:14px;overflow:hidden;background:#000}
+.live .win{position:relative;width:100%;aspect-ratio:1440/900;border-radius:14px;overflow:hidden;background:var(--bg)}
 .live iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0}
 .live .pbar b{font-size:24px}
 /* разделы слайдов */
 .tag{display:inline-flex;align-items:center;gap:14px;height:64px;padding:0 28px;border-radius:999px;background:var(--raised);font-size:26px;font-weight:600}
 .tag i{width:14px;height:14px;border-radius:50%;background:var(--heat)}
-.tag.dim{color:var(--muted)}.tag.dim i{background:#666}
+.tag.dim{color:var(--muted)}.tag.dim i{background:#8c929b}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .vs>div{background:var(--card);border-radius:28px;padding:36px 36px 40px}
 .vs h3{font-size:30px;font-weight:700;margin-bottom:26px}
 .vs .was h3{color:var(--muted)}
 .vs .bul{gap:22px}.vs .bul li{font-size:27px}
-.focus{background:#fff;color:#000;border-radius:28px;padding:30px 36px;font-size:34px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
-.focus span{display:block;font-size:22px;font-weight:500;color:#444;margin-bottom:6px}
+.focus{background:#fff;color:#1f2227;border-radius:28px;padding:30px 36px;font-size:34px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.focus span{display:block;font-size:22px;font-weight:500;color:#4a5059;margin-bottom:6px}
 .figs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .fig{background:var(--card);border-radius:28px;padding:40px 40px 44px;display:flex;flex-direction:column;gap:14px}
 .fig b{font-size:96px;line-height:1;font-weight:700;letter-spacing:-.04em}
@@ -96,45 +96,49 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 .fig p{font-size:23px;line-height:1.4;color:var(--muted)}
 .fig .k{font-size:20px;color:var(--heat-ink);font-weight:600}
 .tree{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.core{background:#fff;color:#000;border-radius:28px;padding:34px 40px;display:flex;justify-content:space-between;align-items:center;gap:40px}
+.core{background:#fff;color:#1f2227;border-radius:28px;padding:34px 40px;display:flex;justify-content:space-between;align-items:center;gap:40px}
 .core b{font-size:40px;font-weight:700;letter-spacing:-.02em}
-.core span{font-size:24px;color:#333;font-weight:500;text-align:right}
+.core span{font-size:24px;color:#4a5059;font-weight:500;text-align:right}
 .lines{height:56px;position:relative}
 .lines svg{position:absolute;inset:0;width:100%;height:100%}
-.lines path{stroke:#4a4a4a;stroke-width:2;fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s var(--ease) .5s}
+.lines path{stroke:#7c828b;stroke-width:2;fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s var(--ease) .5s}
 .slide.on .lines path{stroke-dashoffset:0}
 .br{background:var(--card);border-radius:24px;padding:28px 30px}
 .br b{display:block;font-size:32px;font-weight:700}
 .br span{display:block;font-size:22px;color:var(--muted);margin-top:8px;line-height:1.35}
 .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .steps3 li{background:var(--raised);border-radius:22px;padding:24px 28px;font-size:26px;font-weight:600;display:flex;gap:18px;align-items:center}
-.steps3 li i{flex:none;width:44px;height:44px;border-radius:50%;background:#000;display:grid;place-items:center;font-style:normal;font-size:22px;color:var(--heat-ink)}
+.steps3 li i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:22px;color:var(--heat-ink)}
 .chartc{background:var(--card);border-radius:28px;padding:30px 34px}
 .chartc svg{display:block;width:100%;height:auto}
-.chartc text{font-family:'Manrope',sans-serif;font-size:20px;fill:#949494}
-.chartc .lab{fill:#d6d6d6;font-weight:600}
+.chartc text{font-family:'Manrope',sans-serif;font-size:20px;fill:#b0b4bb}
+.chartc .lab{fill:#e4e6e9;font-weight:600}
 .eq{font-size:46px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
 .eq u{text-decoration:none;color:var(--muted);font-weight:500}
 .kv{display:grid;gap:0}
-.kv div{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:22px 0;border-top:1.5px solid #222;font-size:28px}
+.kv div{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:22px 0;border-top:1.5px solid var(--line);font-size:28px}
 .kv div:first-child{border-top:0}
 .kv span{color:var(--muted)}
 .kv b{font-weight:700;font-size:40px;letter-spacing:-.02em;white-space:nowrap}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .links a{background:var(--card);border-radius:24px;padding:30px 34px;text-decoration:none;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;transition:background-color .2s,transform .2s var(--ease)}
-.links a:hover{background:#1a1a1a;transform:translateY(-3px)}
+.links a:hover{background:var(--raised);transform:translateY(-3px)}
 .links a b{display:block;font-size:30px;font-weight:700}
 .links a span{display:block;font-size:21px;color:var(--faint);margin-top:6px;word-break:break-all}
 .links a svg{flex:none;width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8}
+.q{font-size:30px;line-height:1.4;color:var(--muted);font-weight:500;max-width:1560px;margin-bottom:26px}
+.q span{display:inline-block;background:var(--heat);color:#1f2227;font-weight:700;font-size:20px;line-height:1;padding:9px 16px;border-radius:999px;margin-right:16px;vertical-align:4px}
+.vbars rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1s var(--ease)}
+.slide.on .vbars rect{transform:none}
 .author{display:flex;gap:28px;align-items:center}
 .author b{display:block;font-size:30px}
 .author span{display:block;font-size:22px;color:var(--muted);margin-top:4px}
 .synth{display:inline-flex;align-items:center;gap:12px;font-size:21px;color:var(--muted)}
 .synth i{width:10px;height:10px;border-radius:50%;background:var(--heat)}
 /* полноэкранное видео */
-.vfull{position:fixed;inset:0;background:#000;z-index:20;display:none;flex-direction:column}
+.vfull{position:fixed;inset:0;background:#1f2227;z-index:20;display:none;flex-direction:column}
 .vfull.on{display:flex}
-.vfull video{flex:1;min-height:0;width:100%;object-fit:contain;background:#000}
+.vfull video{flex:1;min-height:0;width:100%;object-fit:contain;background:#1f2227}
 .vfull button{position:absolute;top:20px;right:20px;height:48px;padding:0 22px;border-radius:999px;background:#fff;color:#000;border:0;font-size:17px;font-weight:600;cursor:pointer;z-index:2}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
@@ -190,7 +194,7 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
     </div>
     <figure class="player rv" style="--i:2;align-self:start">
       <div class="screen"><video id="v2" data-src="assets/guide.mp4" poster="assets/guide.jpg" preload="none" playsinline></video><button class="cover" data-play="v2" aria-label="Смотреть видео-инструкцию"><span><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
-      <figcaption class="pbar"><div><b>Видео-инструкция</b><small><span data-dur="v2">2:04</span> · как работает MVP</small></div><div class="btns"><button class="btn primary" data-play="v2">Смотреть</button><button class="btn" data-full="v2">На весь экран</button></div></figcaption>
+      <figcaption class="pbar"><div><b>Видео-инструкция</b><small><span data-dur="v2">2:02</span> · как работает MVP</small></div><div class="btns"><button class="btn primary" data-play="v2">Смотреть</button><button class="btn" data-full="v2">На весь экран</button></div></figcaption>
       <a class="btn" data-mvp target="_blank" rel="noopener" style="align-self:flex-start">Открыть MVP <svg viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></svg></a>
     </figure>
   </div>
@@ -198,8 +202,8 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 
 <!-- 4 · критерий 1 -->
 <section class="slide" data-title="Критерий 1" aria-label="Слайд 4. Здоровье, безопасность, окружающая среда">
-  <h2 class="rv" style="--i:0">Меньше энергии — меньше выбросов и рисков</h2>
-  <p class="lead rv" style="--i:1;margin-top:22px">Критерий 1: как проект снижает вред здоровью, труду и природе</p>
+  <p class="q rv" style="--i:0"><span>Вопрос</span>Как внедрение сократит отрицательное воздействие на здоровье, безопасность труда и окружающую среду?</p>
+  <h2 class="rv" style="--i:1">Меньше энергии — меньше выбросов и рисков</h2>
   <div class="figs rv" style="--i:2;margin-top:56px">
     <div class="fig"><span class="k">Окружающая среда</span><b>1 800<u>т CO₂</u></b><strong>меньше в год на одно ДЗО</strong><p>3 млн кВт·ч не нужно производить на электростанции.</p></div>
     <div class="fig"><span class="k">Безопасность</span><b>0<u>ремонтов</u></b><strong>под давлением</strong><p>Утечку чинят только по допуску: участок отключён, давление сброшено.</p></div>
@@ -214,8 +218,8 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 
 <!-- 5 · критерий 2 -->
 <section class="slide" data-title="Критерий 2" aria-label="Слайд 5. Тиражирование">
-  <h2 class="rv" style="--i:0">Один сервис для всех подразделений КМГ</h2>
-  <p class="lead rv" style="--i:1;margin-top:22px">Критерий 2: метод один, данные у каждого свои</p>
+  <p class="q rv" style="--i:0"><span>Вопрос</span>Насколько возможно повторное моделирование на всех подразделениях КМГ?</p>
+  <h2 class="rv" style="--i:1">Один сервис для всех подразделений КМГ</h2>
   <div class="rv" style="--i:2;margin-top:52px">
     <div class="core"><b>Общий сервис «Энергоконтур»</b><span>сигнал ИИ → ремонт по допуску → замер → деньги → журнал</span></div>
     <div class="lines"><svg viewBox="0 0 1680 56" preserveAspectRatio="none"><path pathLength="1" d="M840 0V28"/><path pathLength="1" d="M840 28H210V56"/><path pathLength="1" d="M840 28H1470V56"/><path pathLength="1" d="M630 28V56"/><path pathLength="1" d="M1050 28V56"/></svg></div>
@@ -234,16 +238,16 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 
 <!-- 6 · критерий 3 -->
 <section class="slide" data-title="Критерий 3" aria-label="Слайд 6. Ценность в деньгах">
-  <h2 class="rv" style="--i:0">90 млн тенге в год на одно ДЗО</h2>
-  <p class="lead rv" style="--i:1;margin-top:22px">Критерий 3: считаем только подтверждённые кВт·ч</p>
-  <div class="cols rv" style="--i:2;grid-template-columns:1fr 700px;margin-top:48px;align-items:start">
+  <p class="q rv" style="--i:0"><span>Вопрос</span>Какова ценность идеи в денежном эквиваленте и какую прибыль принесёт внедрение?</p>
+  <h2 class="rv" style="--i:1">90 млн тенге в год на одно ДЗО</h2>
+  <div class="cols rv" style="--i:2;grid-template-columns:1fr 720px;margin-top:44px;align-items:start">
     <div class="chartc"><div id="chart6"></div></div>
-    <div style="display:flex;flex-direction:column;gap:30px">
-      <p class="eq">3 млн кВт·ч <u>×</u> 30 ₸ <u>=</u> 90 млн ₸</p>
-      <div class="kv"><div><span>Запуск пилота</span><b>36 млн ₸</b></div><div><span>Запуск окупается</span><b>≈ 9 мес.</b></div><div><span>Один месяц EC-01</span><b>7,5 млн ₸</b></div></div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <p class="lead" style="font-size:34px;color:#fff">Прибыль — это меньший счёт за энергию. Деньги остаются в ДЗО каждый месяц.</p>
+      <div class="kv"><div><span>Каждый 1 % экономии</span><b>30 млн ₸ в год</b></div><div><span>За 3 года при 3 %</span><b>270 млн ₸</b></div><div><span>Меньше выбросов</span><b>≈ 1 800 т CO₂</b></div></div>
     </div>
   </div>
-  <p class="small rv" style="--i:3;margin-top:auto">Сценарий автора: база 100 млн кВт·ч в год, снижение 3 %, переменная стоимость 30 ₸/кВт·ч. До эксплуатационных затрат и налогов; точную окупаемость даст ТЭО. Пример EC-01 на синтетических данных.</p>
+  <p class="small rv" style="--i:3;margin-top:auto">Сценарий автора: одно ДЗО с расходом 100 млн кВт·ч в год, переменная стоимость 30 ₸/кВт·ч, 0,6 т CO₂/МВт·ч. Засчитываем только экономию, подтверждённую замером; каждое ДЗО считает её на своих данных.</p>
 </section>
 
 <!-- 7 · ссылки -->
@@ -262,7 +266,7 @@ h2{font-size:76px;line-height:1.04;font-weight:700;letter-spacing:-.035em;max-wi
 </section>
 
 <footer class="chrome">
-  <div class="brand"><img src="assets/img/kmg-logo-dark.png" alt="АО НК «КазМунайГаз»" width="273" height="76"><span id="stitle">Энергоконтур</span></div>
+  <div class="brand"><img src="assets/img/kmg-logo-white.png" alt="АО НК «КазМунайГаз»" width="273" height="76"><span id="stitle">Энергоконтур</span></div>
   <div class="prog"><span id="counter">1 из 7</span><span class="bar"><i id="pbar"></i></span><div class="navb"><button id="prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button id="next" aria-label="Далее"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><button id="fs" aria-label="Полный экран (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div></div>
 </footer>
 </div>
@@ -336,21 +340,14 @@ document.addEventListener('fullscreenchange', () => { if (!document.fullscreenEl
 const r = (s => () => (s = (s * 9301 + 49297) % 233280) / 233280 - .5)(7);
 $('#heat4').innerHTML = Array.from({ length: 60 }, (_, i) => { const dev = i < 30 ? 3.1 + r() * 2.4 : .1 + r() * 1.2; const k = Math.max(0, Math.min(1, dev / 4)); return `<i style="--k:${i};background:rgba(255,138,31,${(.08 + k * .92).toFixed(2)})"></i>` }).join('');
 (() => {
-  const W = 1000, H = 560, L = 64, R = 20, T = 30, B = 44, months = 4, launch = 36, gross = 90, hi = 150;
-  const X = m => L + m / 24 * (W - L - R), Y = v => T + (hi - v) / hi * (H - T - B);
-  let g = `<rect x="${L}" y="${T}" width="${X(months) - L}" height="${H - T - B}" fill="#1a1a1a"/><text x="${L + 14}" y="${T + 30}" class="lab">Внедрение 4 мес.</text>`;
-  for (let v = 0; v <= hi; v += 50) g += `<path d="M${L} ${Y(v)}H${W - R}" stroke="${v ? '#262626' : '#444'}" stroke-width="1.5"/><text x="${L - 14}" y="${Y(v) + 7}" text-anchor="end">${v}</text>`;
-  g += `<path d="M${L} ${Y(launch)}H${W - R}" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="8 7"/><text x="${W - R}" y="${Y(launch) - 12}" text-anchor="end" class="lab">Запуск 36 млн ₸</text>`;
-  const d = Array.from({ length: 25 }, (_, m) => (m ? 'L' : 'M') + X(m).toFixed(1) + ' ' + Y(gross * Math.max(0, m - months) / 12).toFixed(1)).join(' ');
-  const cover = months + launch / gross * 12;
-  g += `<path id="ecoLine" d="${d}" stroke="#ff8a1f" stroke-width="5" fill="none" stroke-linejoin="round"/><circle cx="${X(cover)}" cy="${Y(launch)}" r="9" fill="#fff"/><text x="${X(cover) + 16}" y="${Y(launch) + 34}" class="lab">≈ 9 мес.</text>`;
-  for (const m of [0, 4, 8, 12, 16, 20, 24]) g += `<text x="${X(m)}" y="${H - 10}" text-anchor="${m ? m === 24 ? 'end' : 'middle' : 'start'}">${m}</text>`;
-  g += `<text x="${W - R}" y="${T - 4}" text-anchor="end">млн ₸ накопленной экономии · месяцы от старта</text>`;
-  $('#chart6').innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Накопленная экономия: запуск 36 млн тенге окупается примерно за 9 месяцев">${g}</svg>`;
+  const W = 1000, H = 540, L = 70, R = 20, T = 40, B = 70, hi = 160, bars = [[1, 30], [3, 90], [5, 150]];
+  const Y = v => T + (hi - v) / hi * (H - T - B), bw = 190, gap = (W - L - R - bars.length * bw) / (bars.length + 1);
+  let g = `<text x="${L}" y="${T - 14}">млн ₸ экономии в год</text>`;
+  for (let v = 0; v <= 150; v += 50) g += `<path d="M${L} ${Y(v)}H${W - R}" stroke="${v ? '#4f555e' : '#7c828b'}" stroke-width="1.5"/><text x="${L - 14}" y="${Y(v) + 7}" text-anchor="end">${v}</text>`;
+  g += '<g class="vbars">' + bars.map(([p, v], i) => { const x = L + gap + i * (bw + gap); return `<rect x="${x}" y="${Y(v)}" width="${bw}" height="${Y(0) - Y(v)}" rx="6" fill="${p === 3 ? '#ff8a1f' : '#6b717b'}" style="transition-delay:${400 + i * 150}ms"/>` }).join('') + '</g>';
+  bars.forEach(([p, v], i) => { const x = L + gap + i * (bw + gap) + bw / 2; g += `<text x="${x}" y="${Y(v) - 16}" text-anchor="middle" class="lab" style="font-size:30px;fill:#fff">${v}</text><text x="${x}" y="${H - 28}" text-anchor="middle" style="font-size:24px">снижение ${p} %</text>` });
+  $('#chart6').innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Экономия в год для одного ДЗО: 30, 90 и 150 млн тенге при снижении расхода на 1, 3 и 5 %">${g}</svg>`;
 })();
-const line = $('#ecoLine'), L6 = line.getTotalLength(); line.style.strokeDasharray = L6; line.style.strokeDashoffset = L6;
-const obs = new MutationObserver(() => { const on = slides[5].classList.contains('on'); line.style.transition = on ? 'stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1) .5s' : 'none'; line.style.strokeDashoffset = on ? 0 : L6 });
-obs.observe(slides[5], { attributes: true, attributeFilter: ['class'] });
 
 fit();
 const h = +location.hash.slice(1); show(h >= 1 && h <= N ? h - 1 : 0);

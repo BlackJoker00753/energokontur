@@ -93,7 +93,7 @@ press(word('g8', /^экономики/), '.nav a[data-r=economics]', .6, .3);
 press(word('g8', /^пять/) + .2, '[data-scenario="5000000"]', .6);
 press(word('g8', /^три/) + .2, '[data-scenario="3000000"]', .5);
 at(word('g8', /^девяносто/) - .2, () => point('#ekpis > div:first-child b', .4, .5, .6));
-at(word('g8', /^окупается/) - .2, () => point('#echart circle', .5, .5, .7));
+at(word('g8', /^тенге/) - .2, () => point('#echart', .7, .4, .7));
 at(word('g8', /^тысячу/) - .2, () => point('#ekpis > div:nth-child(4) b', .4, .5, .6));
 // g9 · перенос и журнал
 press(word('g9', /^перенос/) + .1, '.nav a[data-r=rollout]', .6, .3);

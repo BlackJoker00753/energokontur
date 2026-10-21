@@ -16,7 +16,7 @@ for (const s of timing) {
 }
 const steps = timing.map((s, i) => ({ t0: +(LEAD + (i ? s.start - 0.3 : 0)).toFixed(2), t1: +(LEAD + (timing[i + 1] ? timing[i + 1].start - 0.3 : SCREEN)).toFixed(2), text: STEP[s.id] }));
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-const mark = '<div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#000"/></svg></div>';
+const mark = '<div class="mark"><svg viewBox="0 0 18 18"><path d="M10.5 1.5 4 10h4.5l-1 6.5L14 8H9.5z" fill="#1f2227"/></svg></div>';
 
 const html = `<!doctype html>
 <html lang="ru">
@@ -27,24 +27,24 @@ const html = `<!doctype html>
 <style>
 ${readFileSync('composition/fontfaces.css', 'utf8')}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
-#root{width:100%;height:100%;position:relative;overflow:hidden;background:#000;font-family:'Manrope',sans-serif;color:#fff}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#30343b}
+#root{width:100%;height:100%;position:relative;overflow:hidden;background:#30343b;font-family:'Manrope',sans-serif;color:#fff}
 .clip{position:absolute;inset:0}
-.card{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px}
+.card{position:absolute;inset:0;background:#30343b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px}
 .logo{width:420px;height:auto}
 .row{display:flex;align-items:center;gap:30px}
 .mark{width:88px;height:88px;border-radius:26px;background:#ff8a1f;display:grid;place-items:center}
 .mark svg{width:52px;height:52px}
 .ct{font-size:96px;font-weight:700;letter-spacing:-.035em}
-.cs{font-size:38px;color:#b4b4b4;font-weight:500}
+.cs{font-size:38px;color:#cfd2d7;font-weight:500}
 .cu{font-size:40px;color:#ffb067;font-weight:600}
-.cn{position:absolute;bottom:90px;font-size:26px;color:#949494}
+.cn{position:absolute;bottom:90px;font-size:26px;color:#b0b4bb}
 .list{display:flex;gap:14px}
-.list span{font-size:28px;font-weight:600;background:#1f1f1f;border-radius:999px;padding:12px 26px}
+.list span{font-size:28px;font-weight:600;background:#454a53;border-radius:999px;padding:12px 26px}
 #steps{position:absolute;left:36px;bottom:40px;z-index:40}
-.step{position:absolute;left:0;bottom:0;white-space:nowrap;font-size:24px;font-weight:700;color:#000;background:#ff8a1f;border-radius:999px;padding:10px 22px;opacity:0}
+.step{position:absolute;left:0;bottom:0;white-space:nowrap;font-size:24px;font-weight:700;color:#1f2227;background:#ff8a1f;border-radius:999px;padding:10px 22px;opacity:0}
 #caps{position:absolute;left:0;right:0;bottom:40px;display:flex;justify-content:center;z-index:50;pointer-events:none}
-.cap{position:absolute;bottom:0;max-width:1180px;font-size:32px;font-weight:600;line-height:1.3;text-align:center;color:#fff;background:rgba(0,0,0,.9);padding:12px 26px;border-radius:12px;opacity:0}
+.cap{position:absolute;bottom:0;max-width:1180px;font-size:32px;font-weight:600;line-height:1.3;text-align:center;color:#fff;background:rgba(31,34,39,.92);padding:12px 26px;border-radius:12px;opacity:0}
 </style>
 </head>
 <body>
@@ -52,7 +52,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
 
   <div id="intro" class="clip" data-start="0" data-duration="${LEAD}" data-track-index="0">
     <div class="card">
-      <img class="logo" src="assets/kmg-wide-dark.png" alt="КазМунайГаз">
+      <img class="logo" src="assets/kmg-logo-white.png" alt="КазМунайГаз">
       <div id="i1" class="row">${mark}<div class="ct">Как работает Энергоконтур</div></div>
       <div id="i2" class="cs">Видео-инструкция · учебный MVP за 2 минуты</div>
       <div id="i3" class="list"><span>Потеря</span><span>Устранение</span><span>Замер</span><span>Деньги</span></div>
@@ -64,7 +64,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
 
   <div id="outro" class="clip" data-start="${OUT}" data-duration="${OUTRO}" data-track-index="0">
     <div class="card">
-      <img class="logo" src="assets/kmg-wide-dark.png" alt="КазМунайГаз">
+      <img class="logo" src="assets/kmg-logo-white.png" alt="КазМунайГаз">
       <div id="o1" class="row">${mark}<div class="ct">Попробуйте сами</div></div>
       <div id="o2" class="cu">energokontur.onrender.com</div>
       <div class="cn">Энергоконтур · учебный MVP на синтетических данных · Олжас Райганиев, KMG Digital</div>

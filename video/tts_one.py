@@ -8,7 +8,7 @@ async def run():
     c = edge_tts.Communicate(text, VOICE, rate=RATE, boundary='WordBoundary')
     async for m in c.stream():
         if m['type'] == 'audio': audio.extend(m['data'])
-        elif m['type'] == 'WordBoundary': words.append({'t': m['offset'] / 1e7, 'd': m['duration'] / 1e7, 'w': m['text']})
+        elif m['type'] == 'WordBoundary': words.append({'t': m['offset'] / 1e7, 'd': m['duration'] / 1e7, 'w': m['text'].replace('\u0301', '')})
     return words, audio
 for attempt in range(8):
     try: words, audio = asyncio.run(run()); break
@@ -17,7 +17,7 @@ else: raise SystemExit('no audio')
 open('vo/voiceover.mp3', 'wb').write(audio)
 # слова каждой сцены: считаем словоформы (без знаков препинания) по порядку
 import re
-tok = lambda s: [w for w in re.findall(r"[\w\-]+", s)]
+tok = lambda s: [w for w in re.findall(r"[\w\-]+", s.replace('\u0301', ''))]
 i, out = 0, []
 for s in segs:
     n = len(tok(s['say'])); ws = words[i:i + n]; i += n

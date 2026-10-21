@@ -239,6 +239,14 @@ function exportData() {
   a.href = url; a.download = 'energokontur_synthetic.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
+// ---------- тема: угольная (по умолчанию) или светлая; выбор запоминается в браузере
+function setTheme(t) {
+  if (t === 'light') document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('ek.theme', t) } catch (e) {}
+  $('#themeBtn').setAttribute('aria-label', t === 'light' ? 'Тёмная тема' : 'Светлая тема');
+  render();
+}
+
 // ---------- события
 document.addEventListener('click', e => {
   const b = e.target.closest('button,tr[data-open]'); if (!b || b.disabled) return;
@@ -250,6 +258,7 @@ document.addEventListener('click', e => {
   else if (b.hasAttribute('data-export')) exportData();
   else if (b.hasAttribute('data-reset')) { st = fresh(); render(); toast('Учебный пример начат заново') }
   else if (b.classList.contains('menu-btn')) $('.side').classList.toggle('open');
+  else if (b.id === 'themeBtn') setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
 document.addEventListener('change', e => {
   if (e.target.dataset.check) setCheck(sel, e.target.dataset.check, e.target.checked);
